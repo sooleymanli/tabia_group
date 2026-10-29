@@ -1,0 +1,169 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/unbounded';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Both families were checked for Ə/ə, Ğ/ğ, İ/ı, Ş/ş, Ç/ç, Ö/ö, Ü/ü glyphs. */
+@theme {
+  --color-petrol: #0f3d3e;
+  --color-petrol-soft: #2f7f7a;
+  --color-ink: #13272a;
+  --color-mist: #eef3f1;
+  --color-mint: #a8dcc7;
+  --color-pomegranate: #b3403a;
+}
+
+@theme inline {
+  --font-heading: 'Unbounded Variable', var(--font-sans);
+  --font-sans: 'Geist Variable', system-ui, sans-serif;
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: var(--color-mist);
+  --foreground: var(--color-ink);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-petrol);
+  --primary-foreground: #f6faf8;
+  --secondary: #dfeae6;
+  --secondary-foreground: var(--color-petrol);
+  --muted: #e3ebe8;
+  --muted-foreground: #4f6461;
+  --accent: var(--color-mint);
+  --accent-foreground: var(--color-petrol);
+  --destructive: var(--color-pomegranate);
+  --border: #d3dfdb;
+  /* ≥3:1 against both white cards and the mist background for form fields. */
+  --input: #758c88;
+  --ring: var(--color-petrol-soft);
+  --chart-1: var(--color-petrol);
+  --chart-2: var(--color-petrol-soft);
+  --chart-3: #6fb8a2;
+  --chart-4: var(--color-mint);
+  --chart-5: #8a9b98;
+  --radius: 0.75rem;
+  --sidebar: #f6faf8;
+  --sidebar-foreground: var(--color-ink);
+  --sidebar-primary: var(--color-petrol);
+  --sidebar-primary-foreground: #f6faf8;
+  --sidebar-accent: #dfeae6;
+  --sidebar-accent-foreground: var(--color-petrol);
+  --sidebar-border: #d3dfdb;
+  --sidebar-ring: var(--color-petrol-soft);
+  --success: #1f7a5c;
+  --warning: #9a6200;
+}
+
+/* Tabia Guest app inside the phone frame (README 5.4). Light is the default; the guest
+   switches to dark in Settings. Both palettes keep text and controls at WCAG AA. */
+.guest-app {
+  color-scheme: light;
+  --background: #f3f7f6;
+  --foreground: #0f2224;
+  --card: #ffffff;
+  --card-foreground: #0f2224;
+  --popover: #ffffff;
+  --popover-foreground: #0f2224;
+  --primary: #0f5a54;
+  --primary-foreground: #f4fbf8;
+  --secondary: #e4eeeb;
+  --secondary-foreground: #0f2224;
+  --muted: #eaf1ef;
+  --muted-foreground: #556b68;
+  --accent: #d5efe5;
+  --accent-foreground: #0f3d3e;
+  --destructive: #c0392b;
+  --border: rgb(15 34 36 / 0.1);
+  --input: #8a9f9b;
+  --ring: #2f7f7a;
+  --success: #1f7a5c;
+  --warning: #9a6200;
+  --glow: rgb(15 90 84 / 0.18);
+}
+
+.guest-app.dark {
+  color-scheme: dark;
+  --background: #061718;
+  --foreground: #e8f1ee;
+  --card: #0d2526;
+  --card-foreground: #e8f1ee;
+  --popover: #112d2e;
+  --popover-foreground: #e8f1ee;
+  --primary: #7fe0be;
+  --primary-foreground: #04201a;
+  --secondary: #143334;
+  --secondary-foreground: #e8f1ee;
+  --muted: #10292a;
+  --muted-foreground: #93aaa6;
+  --accent: #1b4241;
+  --accent-foreground: #e8f1ee;
+  --destructive: #ff8073;
+  --border: rgb(232 241 238 / 0.09);
+  --input: #5d7773;
+  --ring: #7fe0be;
+  --success: #7fe0be;
+  --warning: #f5bf5f;
+  --glow: rgb(127 224 190 / 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading text-balance;
+  }
+}
